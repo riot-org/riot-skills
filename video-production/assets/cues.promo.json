@@ -1,0 +1,30 @@
+{
+  "_comment": "48 秒产品宣传片，有冲劲。画面里功能轮播每 2.45s 切一次，所以 bar=2.45（≈98 BPM），anchor 取轮播开始的 18.6s。",
+  "duration": 48,
+  "bar": 2.45,
+  "anchor": 18.6,
+  "progression": ["Am", "F", "C", "G"],
+  "endChord": "Am",
+  "sections": [
+    { "from": 0, "to": 6.35, "style": "intro" },
+    { "from": 6.35, "to": 15.54, "style": "groove" },
+    { "from": 15.54, "to": 18.6, "style": "break" },
+    { "from": 18.6, "to": 38.2, "style": "drop" },
+    { "from": 38.2, "to": 43.1, "style": "calm" },
+    { "from": 43.1, "to": 48, "style": "outro" }
+  ],
+  "hits": [
+    { "t": 1.7, "type": "impact", "gain": 0.7, "_at": "名字大字砸下" },
+    { "type": "riser", "from": 5.1, "to": 6.35, "gain": 0.8 },
+    { "t": 6.35, "type": "crash", "gain": 0.9, "_at": "鼓进来" },
+    { "t": 15.6, "type": "impact", "_at": "金句 + 闪屏" },
+    { "type": "riser", "from": 16.15, "to": 18.6 },
+    { "t": 18.6, "type": "crash", "_at": "高潮段开始" },
+    { "t": 28.4, "type": "crash", "gain": 0.7 },
+    { "t": 38.7, "type": "impact", "gain": 0.9, "_at": "转入平静段 + 闪屏" },
+    { "t": 41.65, "type": "click", "_at": "演示里的光标点击" },
+    { "t": 41.9, "type": "chime", "_at": "操作成功" },
+    { "t": 44.0, "type": "impact", "gain": 0.85, "_at": "结尾 Logo 落定" },
+    { "t": 44.0, "type": "crash", "gain": 0.6 }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "_comment": "和 template.html 的时间轴一一对应（用 render.cjs --timeline 得到的时刻）。改了模板的场景时长后，按 audio.md「从画面时间轴写 cues」同步修改。",
+  "duration": 36.75,
+  "bar": 2.45,
+  "anchor": 0,
+  "progression": ["Am", "F", "C", "G"],
+  "endChord": "Am",
+  "sections": [
+    { "from": 0, "to": 4.9, "style": "intro", "_scene": "s-title" },
+    { "from": 4.9, "to": 14.7, "style": "groove", "_scene": "s-window + s-stats" },
+    { "from": 14.7, "to": 19.6, "style": "break", "_scene": "s-quote" },
+    { "from": 19.6, "to": 26.95, "style": "drop", "_scene": "s-list" },
+    { "from": 26.95, "to": 31.85, "style": "calm", "_scene": "s-demo" },
+    { "from": 31.85, "to": 36.75, "style": "outro", "_scene": "s-outro" }
+  ],
+  "hits": [
+    { "t": 0.6, "type": "impact", "gain": 0.7, "_at": "s-title 大字 slam（lt 0.6）" },
+    { "t": 4.9, "type": "crash", "gain": 0.8, "_at": "进入 s-window，鼓进来" },
+    { "t": 14.7, "type": "impact", "_at": "flash 转场进 s-quote" },
+    { "type": "riser", "from": 17.15, "to": 19.6, "_at": "s-quote 最后一小节蓄力" },
+    { "t": 19.6, "type": "crash", "_at": "wipe 进 s-list，高潮开始" },
+    { "t": 29.25, "type": "click", "_at": "s-demo 光标点击（lt 2.3）" },
+    { "t": 29.5, "type": "chime", "_at": "操作成功" },
+    { "t": 32.05, "type": "impact", "gain": 0.85, "_at": "s-outro Logo 弹出（lt 0.2）" },
+    { "t": 32.05, "type": "crash", "gain": 0.6 }
+  ]
+}

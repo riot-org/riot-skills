@@ -1,0 +1,18 @@
+{
+  "_comment": "30 秒温暖回顾（照片集、品牌故事、感谢视频）。无 drop，速度慢，照片每 3.2s 一张 = 一小节（75 BPM）。",
+  "duration": 30,
+  "bar": 3.2,
+  "anchor": 3.2,
+  "progression": ["C", "G", "Am", "F"],
+  "endChord": "C",
+  "sections": [
+    { "from": 0, "to": 6.4, "style": "intro" },
+    { "from": 6.4, "to": 22.4, "style": "calm" },
+    { "from": 22.4, "to": 30, "style": "outro" }
+  ],
+  "hits": [
+    { "t": 0.4, "type": "impact", "gain": 0.4, "_at": "标题出现" },
+    { "t": 6.4, "type": "crash", "gain": 0.4 },
+    { "t": 22.4, "type": "chime", "gain": 0.8, "_at": "结尾文字卡" }
+  ]
+}
