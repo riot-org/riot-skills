@@ -1,0 +1,32 @@
+{
+  "_comment": "示例数值为虚构，仅演示格式。真实分析时从 fuyao MCP 或东方财富兜底取数，缺失写 null。成交额单位：元。",
+  "date": "2026-09-30",
+  "breadth": {
+    "pct_above_ma20": 0.38,
+    "pct_above_ma60": 0.41,
+    "advancers": 1820,
+    "decliners": 3240,
+    "new_highs": 46,
+    "new_lows": 118
+  },
+  "turnover": {
+    "today": 980000000000,
+    "avg20": 1120000000000
+  },
+  "risk": {
+    "limit_up": 52,
+    "limit_down": 21,
+    "max_board_height": 4
+  },
+  "supply": {
+    "融资余额 20 日变化": "+1.2%",
+    "本周 IPO 募资": "约 35 亿元",
+    "未来 30 日解禁市值": "约 2100 亿元",
+    "近 20 日重要股东减持公告": "126 家"
+  },
+  "sources": {
+    "breadth": "fuyao-a-share-index，2026-09-30 收盘",
+    "turnover": "fuyao-a-share-index",
+    "risk": "东方财富兜底 https://quote.eastmoney.com/center/gridlist.html#hs_a_board，2026-09-30 15:30 读取"
+  }
+}

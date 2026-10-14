@@ -1,0 +1,138 @@
+{
+  "_comment": "演示报告输入：全部为合成/虚构数据，仅用于展示 render_report.py 的格式。真实研究时复制本文件改写。字符串形式的 market/scores/indicators/cashflow 为相对本文件的 JSON 路径，也可以直接内嵌对象。",
+  "title": "A 股研究报告（演示，合成数据）",
+  "analysis_date": "2026-10-14",
+  "data_cutoff": "2026-09-30 收盘",
+  "financials_as_of": "2025 年报（2026-04 披露）",
+  "sources": [
+    {
+      "item": "指数与个股行情",
+      "source": "合成数据 examples/data/*.csv",
+      "as_of": "2026-09-30"
+    },
+    {
+      "item": "市场广度/涨跌停",
+      "source": "templates/market.example.json（虚构）",
+      "as_of": "2026-09-30"
+    },
+    {
+      "item": "财务数据",
+      "source": "templates/financials.example.json（虚构）",
+      "as_of": "2025 年报"
+    }
+  ],
+  "market": "out/regime.json",
+  "universe": {
+    "scope": "演示样本 8 只（合成）",
+    "filters": [
+      "排除 ST/*ST 与审计意见非标",
+      "排除上市不足 250 个交易日",
+      "现金流硬门槛：近 3 年 CFO 全正、CFO/净利润 ≥ 0.8、FCF 累计为正、净负债/CFO ≤ 3",
+      "趋势硬门槛：收盘在 MA60 上方、MA60 向上、60 日超额为正"
+    ],
+    "excluded": []
+  },
+  "scores": "out/scores.json",
+  "candidates": [
+    {
+      "code": "DEMO01",
+      "name": "示例A",
+      "industry": "电力设备",
+      "kline_csv": "data/DEMO01_trend_up.csv",
+      "bench_csv": "data/bench_synthetic.csv",
+      "indicators": "out/DEMO01_indicators.json",
+      "cashflow": "out/DEMO01_cashflow.json",
+      "valuation": "PE 5 年分位 55%",
+      "supply_risk": "低（无近期解禁）",
+      "conclusion": "观察等待",
+      "supports": [
+        "相对基准和行业持续走强，MA60 向上",
+        "近 5 年 CFO/净利润均 > 1，净现金"
+      ],
+      "risks": [
+        "市场处于风险收缩，趋势信号可信度下调",
+        "2023 年有一次股权融资"
+      ],
+      "to_verify": [
+        "三季报回款是否延续",
+        "在手订单与产能投放节奏"
+      ],
+      "invalidation": [
+        "收盘跌破 MA60 且 5 日内未收回",
+        "季度 CFO/净利润 < 0.6"
+      ],
+      "watch_zone": "市场状态改善后，回踩 MA20~MA60 且缩量时再评估；不给具体价格",
+      "valuation_csv": "data/DEMO01_valuation.csv",
+      "valuation_column": "pe_ttm",
+      "main_force": "out/DEMO01_main_force.json",
+      "resonance": "out/DEMO01_resonance.json"
+    },
+    {
+      "code": "DEMO02",
+      "name": "示例B",
+      "industry": "电力设备",
+      "kline_csv": "data/DEMO02_downtrend.csv",
+      "bench_csv": "data/bench_synthetic.csv",
+      "indicators": "out/DEMO02_indicators.json",
+      "valuation": "PE 5 年分位 30%",
+      "supply_risk": "中（未来 3 个月有解禁）",
+      "conclusion": "回避",
+      "supports": [
+        "估值处于历史较低分位"
+      ],
+      "risks": [
+        "MA60/MA120 空头排列，相对强度持续走弱",
+        "低估值可能是价值陷阱"
+      ],
+      "to_verify": [
+        "解禁股东的减持意向"
+      ],
+      "invalidation": [
+        "重新站上 MA120 且相对强度转正"
+      ],
+      "watch_zone": null,
+      "main_force": "out/DEMO02_main_force.json",
+      "resonance": "out/DEMO02_resonance.json"
+    }
+  ],
+  "risk_plan": {
+    "position_limits": [
+      "单股 ≤ 10%，单行业 ≤ 25%",
+      "风险收缩状态下总仓位上限下调"
+    ],
+    "correlation": "示例A、示例B 同属电力设备，合计权重受行业上限约束",
+    "liquidity": "按 20 日均成交额的 5% 设单日建仓上限",
+    "exit_triggers": [
+      "逻辑失效条件触发",
+      "财报现金流恶化",
+      "市场状态转为风险收缩且个股跌破 MA60"
+    ],
+    "sizing_md": "out/DEMO01_sizing.md",
+    "holdings_csv": "../templates/holdings.example.csv",
+    "max_weight": 0.1,
+    "max_industry": 0.25
+  },
+  "summary": "市场状态偏弱，本期以观察为主；示例A 质量和趋势俱佳但需等待市场环境改善。",
+  "breadth_history": "data/market_with_history.json",
+  "sectors": {
+    "csv": "../templates/sectors.example.csv",
+    "columns": {
+      "ret_1d": "今日",
+      "ret_5d": "近5日",
+      "ret_20d": "近20日",
+      "ret_60d": "近60日"
+    },
+    "sort": "ret_20d"
+  },
+  "national_team": {
+    "json": "out/national_team.json",
+    "sh_csv": "data/sh_synthetic.csv",
+    "compare": {
+      "中证1000": "data/csi1000_synthetic.csv"
+    },
+    "etf": {
+      "沪深300ETF": "data/etf300_synthetic.csv"
+    }
+  },
+  "daily": "out/daily.json"
+}

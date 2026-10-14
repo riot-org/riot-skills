@@ -1,0 +1,15 @@
+{
+  "_comment": "主力行为分析的可选事件数据（虚构示例）。没有就省略字段，不要填 0。lhb_* 为近 20 日龙虎榜累计净买（元）；sector_* 为所属板块近 5 日涨停家次与最高连板（个股未上龙虎榜时作为游资参与的板块级证据）；inst_holding_change 为机构/基金/北向持股比例变化（小数）。来源：fuyao 或东方财富 龙虎榜/股东户数/大宗交易/增减持/机构持仓页面。",
+  "holder_count_change": -0.083,
+  "holder_count_note": "2026-09-30 股东户数较 2026-06-30 减少 8.3%",
+  "lhb_note": "近 20 日上榜 2 次：机构专用席位合计净买 0.9 亿，两家游资营业部合计净买 0.35 亿",
+  "block_trade_discount": 0.021,
+  "insider_reduction": null,
+  "margin_balance_change_20d": 0.064,
+  "lhb_institution_net": 90000000,
+  "lhb_hotmoney_net": 35000000,
+  "inst_holding_change": 0.012,
+  "sector_name": "电力设备",
+  "sector_limit_up_5d": 7,
+  "sector_max_board": 3
+}

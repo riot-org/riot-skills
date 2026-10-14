@@ -1,0 +1,34 @@
+{
+  "_comment": "评分配置（SKILL.md 第 4 节）。gates 是硬门槛：cash 类不过直接排除，trend 类不过不参与排名。direction=1 越大越好，-1 越小越好。权重和因子都是研究起点，需回测调整。",
+  "gates": [
+    {"column": "cash_gate", "op": "==", "value": 1, "type": "cash", "label": "现金流硬门槛", "detail_column": "cash_gate_detail"},
+    {"column": "dist_ma60", "op": ">", "value": 0, "type": "trend", "label": "收盘在 MA60 上方"},
+    {"column": "ma60_slope", "op": ">", "value": 0, "type": "trend", "label": "MA60 向上"},
+    {"column": "excess_60d", "op": ">", "value": 0, "type": "trend", "label": "60 日超额为正"}
+  ],
+  "weights": {"trend": 0.35, "quality": 0.30, "valuation": 0.15, "liquidity": 0.10, "risk": 0.10},
+  "regime_weights": {
+    "contraction": {"trend": 0.20, "quality": 0.30, "valuation": 0.15, "liquidity": 0.20, "risk": 0.15},
+    "choppy": {"trend": 0.30, "quality": 0.30, "valuation": 0.15, "liquidity": 0.12, "risk": 0.13}
+  },
+  "factors": [
+    {"column": "excess_60d", "group": "trend", "direction": 1, "label": "60 日超额收益"},
+    {"column": "excess_120d", "group": "trend", "direction": 1, "label": "120 日超额收益"},
+    {"column": "ma60_slope", "group": "trend", "direction": 1, "label": "MA60 斜率"},
+    {"column": "max_drawdown_120d", "group": "trend", "direction": 1, "label": "120 日最大回撤（越浅越好）"},
+    {"column": "cashflow_score", "group": "quality", "direction": 1, "label": "现金流质量分"},
+    {"column": "cfo_to_ni", "group": "quality", "direction": 1, "label": "CFO/净利润"},
+    {"column": "net_debt_to_cfo", "group": "quality", "direction": -1, "label": "净负债/CFO"},
+    {"column": "pe_pct_5y", "group": "valuation", "direction": -1, "label": "PE 5 年分位"},
+    {"column": "peg", "group": "valuation", "direction": -1, "label": "PEG"},
+    {"column": "avg_amount_20d", "group": "liquidity", "direction": 1, "label": "20 日均成交额"},
+    {"column": "supply_risk", "group": "risk", "direction": -1, "label": "解禁/减持/再融资压力 0~1"},
+    {"column": "event_risk", "group": "risk", "direction": -1, "label": "治理与事件风险 0~1"}
+  ],
+  "not_applicable_groups": {
+    "银行": ["quality"], "保险": ["quality"], "证券": ["quality"], "多元金融": ["quality"]
+  },
+  "industry_neutral_groups": ["quality", "valuation"],
+  "min_industry_size": 5,
+  "missing_percentile": 0.0
+}
